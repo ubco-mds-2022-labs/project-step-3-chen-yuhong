@@ -1,4 +1,5 @@
 from .character import character
+from ..exceptions.InvalidPriceException import InvalidPriceException
 
 #inheritence from character
 class player(character):
@@ -81,10 +82,13 @@ class player(character):
 
     #get the money from the dead alien
     def getMoney(self, money):
-        print("""
-                                You reclaimed ${} from the dead alien, they must have stolen these cash
-                                from someone's backpack""".format(money))
-        self.money += money
+        try:
+            print("""
+                                    You reclaimed ${} from the dead alien, they must have stolen these cash
+                                    from someone's backpack""".format(money))
+            self.money += money
+        except(TypeError):
+            print("You found something strange from the alien")
     
     #return current money value
     def showMoney(self):
@@ -92,7 +96,14 @@ class player(character):
 
     #deduct money when buying items in tim horton
     def pay(self,price):
-        self.money -=price
+        try:
+            if price < 0:
+                raise InvalidPriceException
+            self.money -= price
+        except TypeError:
+            return "Price has to be a number"
+        except(InvalidPriceException):
+            return "Price can't be negative"
 
     #upgrade player identity when player gets spark lance
     def transform(self):

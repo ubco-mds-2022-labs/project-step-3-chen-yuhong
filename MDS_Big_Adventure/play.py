@@ -300,6 +300,8 @@ class play():
             self.p1.display()
             try:
                 command = int(input("what is your next move?"))
+                if command > 4:
+                    raise Exception
 
                 if command == 1:
                     self.advance()
@@ -323,4 +325,8 @@ class play():
             except(ValueError):
                 print("""
                           Please enter a number""")
+            except Exception as ex:
+                print(ex)
+                print("""
+                          Please select from available Options""")
 

@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from item.sparkLance import sparkLance
+from MDS_Big_Adventure.item.sparkLance import sparkLance
 
 class TestSparkLance(unittest.TestCase):
     

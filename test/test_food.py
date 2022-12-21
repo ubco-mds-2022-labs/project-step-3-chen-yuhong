@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from item.food import item
+from MDS_Big_Adventure.item.food import item
 
 class TestItem(unittest.TestCase):
     

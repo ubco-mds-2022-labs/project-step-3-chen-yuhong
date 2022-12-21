@@ -12,18 +12,27 @@ class timHortons(level):
 
     #update item amount when the item is sold 
     def sell(self, item):
-        item.setamount(item.getamount()-1)
+        try:
+            item.setamount(item.getamount()-1)
+        except Exception as ex:
+            print(ex)
+            print("something is wrong with our stock")
 
     #check item stock
     def checkStock(self, name):
-        for r in self.getInv():
-            if r.getname() == name and r.getamount() > 0:
-                return r
-            elif r.getname() == name and r.getamount() == 0:
-                return 1
-            elif name == "turkey bacon club":
-                return 3
-        return 2
+        try:
+            if name.isdigit():
+                raise ValueError
+            for r in self.getInv():
+                if r.getname() == name and r.getamount() > 0:
+                    return r
+                elif r.getname() == name and r.getamount() == 0:
+                    return 1
+                elif name == "turkey bacon club":
+                    return 3
+            return 2
+        except ValueError:
+            return 2
 
     #return inventory
     def getInv(self):

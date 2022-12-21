@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from scene.level import level
+from MDS_Big_Adventure.scene.level import level
 
 class TestLevel(unittest.TestCase):
     

@@ -1,9 +1,9 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from scene.timhortons import timHortons
-from character.alien import alien
-from item.food import item
+from MDS_Big_Adventure.scene.timhortons import timHortons
+from MDS_Big_Adventure.character.alien import alien
+from MDS_Big_Adventure.item.food import item
 
 class TestTimhortons(unittest.TestCase):
     

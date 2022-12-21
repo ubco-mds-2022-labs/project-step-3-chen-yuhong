@@ -1,8 +1,8 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from character.player import player
-
+from MDS_Big_Adventure.character.player import player
+from MDS_Big_Adventure.exceptions import InvalidPriceException
 class TestPlayer(unittest.TestCase):
     
     @classmethod
@@ -23,6 +23,14 @@ class TestPlayer(unittest.TestCase):
         self.assertNotEqual(self.p.getidentity(),0)
         self.assertNotEqual(self.p.getidentity(),2)
         self.assertNotEqual(self.p.getidentity(),3)
+        
+    def test_pay(self):
+        self.assertEqual(self.p.pay(-0.1), "Price can't be negative")
+        self.assertEqual(self.p.pay("1"), "Price has to be a number")
+        
+        
+        
+        
     def tearDown(self):
         print("")
         

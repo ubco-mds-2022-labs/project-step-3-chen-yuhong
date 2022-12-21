@@ -9,11 +9,19 @@ class sparkLance():
 
     #multiply the health value to the player
     def betaTransform(self, p):
-        p.health = p.health*self.__hp
+        try:
+            p.health = p.health*self.__hp
+        except Exception as ex:
+            print(ex)
+            print("Something is wrong with the player")
 
     #multiply the power value to the player
     def getSpacium(self, p):
-        p.power = p.power*self.__po
+        try:
+            p.power = p.power*self.__po
+        except Exception as ex:
+            print(ex)
+            print("Something is wrong with the player")
 
     #get the plot when sparklance is activated
     def getplot(self):

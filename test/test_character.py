@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from character.character import character
+from MDS_Big_Adventure.character.character import character
 
 class TestCharacter(unittest.TestCase):
     
