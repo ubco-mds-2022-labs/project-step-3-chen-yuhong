@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from character.alien import alien
+from MDS_Big_Adventure.character.alien import alien
 
 class TestAlien(unittest.TestCase):
     
@@ -23,6 +23,19 @@ class TestAlien(unittest.TestCase):
         self.assertNotEqual(self.a.dropMoney(),200)
         self.assertNotEqual(self.a.dropMoney(),-1)
         self.assertNotEqual(self.a.dropMoney(),100)
+    def test_die(self):
+        self.a.die()
+        self.assertEqual(self.a.health, 0)
+    def test_isdead(self):
+        self.a.die()
+        self.assertTrue(self.a.isdead())
+    def test_wound(self):
+        self.a.wound(10)
+        self.assertEqual(self.a.health, 90)
+        self.a.wound(100)
+        self.assertEqual(self.a.health, 0)
+        
+        
     def tearDown(self):
         print("")
         

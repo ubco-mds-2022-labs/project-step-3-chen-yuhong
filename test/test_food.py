@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from item.food import item
+from MDS_Big_Adventure.item.food import item
 
 class TestItem(unittest.TestCase):
     
@@ -23,6 +23,12 @@ class TestItem(unittest.TestCase):
         self.assertNotEqual(self.i.getprice(),200)
         self.assertNotEqual(self.i.getprice(),-1)
         self.assertNotEqual(self.i.getprice(),100)
+        
+    def test_getpo(self):
+        self.assertEqual(self.i.getpo(),30)
+        self.assertNotEqual(self.i.getpo(),"bacon")
+        self.assertNotEqual(self.i.getpo(),20)
+        self.assertNotEqual(self.i.getpo(),2)
     def tearDown(self):
         print("")
         

@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from character.character import character
+from MDS_Big_Adventure.character.character import character
 
 class TestCharacter(unittest.TestCase):
     
@@ -23,6 +23,11 @@ class TestCharacter(unittest.TestCase):
         self.assertNotEqual(self.c.display(),"Health: 100 power: 100")
         self.assertNotEqual(self.c.display(),"power: 50")
         self.assertNotEqual(self.c.display(),"100; 50")
+    def test_wound(self):
+        self.c.wound(10)
+        self.assertEqual(self.c.health, 90)
+        self.c.wound(100)
+        self.assertEqual(self.c.health, 0)
     def tearDown(self):
         print("")
         

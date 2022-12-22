@@ -1,9 +1,9 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from scene.timhortons import timHortons
-from character.alien import alien
-from item.food import item
+from MDS_Big_Adventure.scene.timhortons import timHortons
+from MDS_Big_Adventure.character.alien import alien
+from MDS_Big_Adventure.item.food import item
 
 class TestTimhortons(unittest.TestCase):
     
@@ -28,6 +28,11 @@ class TestTimhortons(unittest.TestCase):
         self.assertEqual(self.t.checkStock("skdhg"), 2)
         self.assertEqual(self.t.checkStock("turkey bacon club"), 3)
         self.assertEqual(self.t.checkStock("potato"), 1)
+        
+    def test_sell(self):
+        self.assertEqual(self.t.sell("bacon"), "something is wrong with our stock")
+        self.t.sell(self.i)
+        self.assertEqual(1, self.i.getamount())
         
     
     def tearDown(self):

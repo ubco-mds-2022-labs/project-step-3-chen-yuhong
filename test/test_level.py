@@ -1,7 +1,7 @@
 import unittest
 import sys 
 sys.path.append("..") 
-from scene.level import level
+from MDS_Big_Adventure.scene.level import level
 
 class TestLevel(unittest.TestCase):
     
@@ -23,6 +23,11 @@ class TestLevel(unittest.TestCase):
         self.assertNotEqual(self.l.getLoc(),200)
         self.assertNotEqual(self.l.getLoc(),-1)
         self.assertNotEqual(self.l.getLoc(),100)
+        
+    def test_getplot(self):
+        self.assertEqual(self.l.getplot(),"plot A")
+        self.l.visit()
+        self.assertEqual(self.l.getplot(),"plot B")
     def tearDown(self):
         print("")
         
